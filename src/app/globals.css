@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+    --animate-normalFall: normalFall 6s ease-in-out infinite;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    @keyframes normalFall {
+        0% {
+            transform: translateY(-120%);
+        }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+        62% {
+            opacity: 1
+        }
+
+        100% {
+            transform: translateY(67vh);
+            opacity: 0;
+        }
+    }
+
+    --animate-fallingIce: fallingIce 7s ease-in-out infinite;
+
+    @keyframes fallingIce {
+        0% {
+            transform: translateY(-120%) rotate(0deg);
+        }
+
+        60% {
+            opacity: 1
+        }
+
+        100% {
+            transform: translateY(60vh) rotate(-360deg);
+            opacity: 0;
+        }
+    }
+
+    --animate-floating: floating 4s ease-in-out infinite;
+
+    @keyframes floating {
+        from {
+            transform: translate(0, 0px);
+        }
+
+        65% {
+            transform: translate(0, 15px);
+        }
+
+        to {
+            transform: translate(0, -0px);
+        }
+    }
 }
